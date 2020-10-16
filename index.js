@@ -1,54 +1,19 @@
-    
-const cardArray = [
-    {
-        name: 'felix',
-        img: 'images/Felix100x100.png'
-    },
-    {
-        name: 'gene',
-        img: 'images/Gene100x100.png'
-    },
-    {
-        name: 'king-candy',
-        img: 'images/KingCandy100x100.png'
-    },
-    {
-        name: 'qbert',
-        img: 'images/Qbert100x100.png'
-    },
-    {
-        name: 'ralph',
-        img: 'images/Ralph100x100.png'
-    },
-    {
-        name: 'rancis-fluggerbutter',
-        img: 'images/RancisFluggerbutter100x100.png'
-    },
-    {
-        name: 'sargeant-calhoun',
-        img: 'images/SargeantCalhoun100x100.png'
-    },
-    {
-        name: 'sour-bill',
-        img: 'images/SourBill100x100.png'
-    },
-    {
-        name: 'taffyta-muttonfudge',
-        img: 'images/TaffytaMuttonfudge100x100.png'
-    },
-    {
-        name: 'vanellope-on-ralph',
-        img: 'images/VanellopeOnRalph100x100.png'
-    },
-    {
-        name: 'vanellope-von-schweetz',
-        img: 'images/VanellopeVonSchweetz100x100.png'
-    },
-    {
-        name: 'wynchal-and-duncan',
-        img: 'images/WynchalAndDuncan100x100.png'
-    },
-]
+const open = document.getElementById('login')
+const modal_container = document.getElementById('modal-container')
+const submit = document.getElementsByClassName('close')[0]
+
+//open modal
+open.addEventListener('click', () => {
+    modal_container.style.display = "block";
+})
+//close modal
+submit.addEventListener('click', () => {
+    modal_container.style.display = "none";
+})
+//close modal when user clicks outside of it
+// window.addEventListener('click', () => {
+//     modal_container.style.display = "none";
+// })
 
 //GET Game
 function getGame() {
@@ -114,3 +79,62 @@ function getGame() {
 // function renderPlayerProfile() {
 //     console.log("player profile") //need to figure this out
 // }
+
+
+
+
+
+
+
+
+    
+// const cardArray = [
+//     {
+//         name: 'felix',
+//         img: 'images/Felix100x100.png'
+//     },
+//     {
+//         name: 'gene',
+//         img: 'images/Gene100x100.png'
+//     },
+//     {
+//         name: 'king-candy',
+//         img: 'images/KingCandy100x100.png'
+//     },
+//     {
+//         name: 'qbert',
+//         img: 'images/Qbert100x100.png'
+//     },
+//     {
+//         name: 'ralph',
+//         img: 'images/Ralph100x100.png'
+//     },
+//     {
+//         name: 'rancis-fluggerbutter',
+//         img: 'images/RancisFluggerbutter100x100.png'
+//     },
+//     {
+//         name: 'sargeant-calhoun',
+//         img: 'images/SargeantCalhoun100x100.png'
+//     },
+//     {
+//         name: 'sour-bill',
+//         img: 'images/SourBill100x100.png'
+//     },
+//     {
+//         name: 'taffyta-muttonfudge',
+//         img: 'images/TaffytaMuttonfudge100x100.png'
+//     },
+//     {
+//         name: 'vanellope-on-ralph',
+//         img: 'images/VanellopeOnRalph100x100.png'
+//     },
+//     {
+//         name: 'vanellope-von-schweetz',
+//         img: 'images/VanellopeVonSchweetz100x100.png'
+//     },
+//     {
+//         name: 'wynchal-and-duncan',
+//         img: 'images/WynchalAndDuncan100x100.png'
+//     },
+// ]
