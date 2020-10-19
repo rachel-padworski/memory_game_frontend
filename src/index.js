@@ -1,38 +1,77 @@
-const open = document.getElementById('login')
-const modal_container = document.getElementById('modal-container')
-const submit = document.getElementsByClassName('close')[0]
+const app = new App()
+
+
+/////Modal//////
+// const open = document.getElementById('login')
+// const modal_container = document.getElementById('modal-container')
+// const submit = document.getElementsByClassName('close')[0]
 
 //open modal
-open.addEventListener('click', () => {
-    modal_container.style.display = "block";
-})
+// open.addEventListener('click', () => {
+//     modal_container.style.display = "block";
+// })
 //close modal
-submit.addEventListener('click', () => {
-    modal_container.style.display = "none";
-})
+// submit.addEventListener('click', () => {
+//     modal_container.style.display = "none";
+// })
 //close modal when user clicks outside of it
 // window.addEventListener('click', () => {
 //     modal_container.style.display = "none";
 // })
 
-//GET Game
-function getGame() {
-    fetch("http://localhost:3000/api/v1/games")
-    .then(response => response.json())
-    .then(games => {
-        games.data.forEach((game) => {
-            // let createCards = 
-            // let card = document.querySelector('#grid').innerHTML
-            // card.setAttribute('src', 'images/BackOfCard.png')
-            // card.setAttribute('data-id', index)
-            // card.addEventListener('click', flipcard)
-            // grid.appendChild(card)
-        });
-    })
-}
-// getGame()
-// function flipcard() {
 
+///////////////////
+
+
+
+// cardArray.sort(() => 0.5 - Math.random())
+
+// const grid = document.querySelector('.grid')
+// const resultDisplay = document.querySelector('#result')
+// let cardsChosen = []
+// let cardsChosenId = []
+// let cardsWon =[]
+
+// function generateGameBoard() {
+//     for (let i = 0; i < cardArray.length; i++) {
+//         let card = document.createElement('img')
+//         card.setAttribute('src', 'images/backofcard.png')
+//         card.setAttribute('data-id', i)
+//         card.addEventListener('click', flipcard)
+//         grid.appendChild(card)
+//     }
+// }
+
+// // check for matches
+// function checkForMatch() {
+//     let cards = document.querySelectorAll('img')
+//     const optionOneId = cardsChosenId[0]
+//     const optionTwoId = cardsChosenId[1]
+//     if (cardsChosen[0] === cardsChosen[1]) {
+//         alert('It\'s a match!')
+//         cardsWon.push(cardsChosen)
+//     } else {
+//         cards[optionOneId].setAttribute('src', 'images/backofcard.png')
+//         cards[optionTwoId].setAttribute('src', 'images/backofcard.png')
+//         alert('Sorry, try again')
+//     }
+//     cardsChosen = []
+//     cardsChosenId = []
+//     resultDisplay.textContent = cardsWon.length 
+//     if (cardsWon.length === cardArray.length/2) {
+//         resultDisplay.textContent = 'Congratulations, Winner!'
+//     }
+// }
+
+// //flip the selected card
+// function flipcard() {
+//     let cardId = this.getAttribute('data-id')
+//     cardsChosen.push(cardArray[cardId].name)
+//     cardsChosenId.push(cardId)
+//     this.setAttribute('src', cardArray[cardId].img)
+//     if (cardsChosen.length === 2) {
+//         setTimeout(checkForMatch, 500)
+//     }
 // }
 
 //Form for username
