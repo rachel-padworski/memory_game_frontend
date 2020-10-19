@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="style.css"></link>
+    <script defer src="src/adapters/GamesAdapter.js"></script>
+    <script defer src="src/components/games.js"></script>
+    <script defer src="src/components/app.js"></script>
+    <script defer src="src/index.js"></script>
+
+    
 </head>
 <body>
+    <header>
+        <nav class='topnav'>
+
+            <a href='#modal-container' id='login'>Login</a>
+            <!-- <a href="">player stats></a> -->
+            
+        </nav>
+    </header>
     
+
+    <div>
+        <div class="modal" id="modal-container">
+            <div class="modal-header">
+                <span class='close'>&times;</span>
+                <h1>Create a Username:</h1>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <input id='input-username' type="username" name="username" placeholder="username" value="" class="input-text">
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button id="submit" type="submit" value="submit" class="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+
+   <h3>Score:<span id="result"></span></h3>
+
+
+    
+
+   
+
+    <div class="game-container">
+        <div id="memory-game">Memory Game</div>
+        <div id="grid" class="grid">
+  
+        </div>
+    </div>
+
+    <!-- <div class="login-button">
+        <form id="create-username-form">
+            <h3>Create a Username:</h3>
+
+            <input id='input-username' type="username" name="username" placeholder="username" value="" class="input-text">
+            <br><br>
+            <input id='create-button' type="submit" name="submit" value="Submit" class="submit">
+        </form>
+    </div> -->
+
+
+
+
+    
+
 </body>
 </html>
