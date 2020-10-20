@@ -1,28 +1,24 @@
 class Games {
     constructor() {
-        this.games = []
+        // this.games = []
         this.adapter = new GamesAdapter()
         //this.bindEventListeners()
-        this.fetchAndLoadGames()
+        this.newGame = new Game()
+        this.fetchAndLoadGame()
     }
 
-    fetchAndLoadGames() {
+    fetchAndLoadGame() {
         this.adapter
-            .getGames()
+            .getGames() //fetches the API
             .then(games => {
-                games.forEach(game => this.games.push(new Game(game)))
-                console.log(this.games)
-            })
-            .then(()=> {
-                this.render()
+                games.data.forEach(game => {
+                    this.newGame(game, game.attributes)
+                    document.querySelector('#grid').innerHTML += newGame.renderCards()
+                })
             })
     }
 
-    render() {
-        const gameGrid = document.getElementById("grid")
-        gameGrid.innerHTML = 'my game'
-        console.log('games', this.games)
-    }
+   
 
 }
 
