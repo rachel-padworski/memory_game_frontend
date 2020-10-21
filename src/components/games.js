@@ -9,7 +9,7 @@ class Games {
         this.cardsChosen = []
         this.cardsChosenId = []
         this.cardsWon = []
-        
+        //this.flipCard()
         // this.renderCards()
         // this.generateGameBoard()
     }
@@ -38,52 +38,58 @@ class Games {
     //gets each attribute from this.games array in Games class and displays the cards in the grid.
     renderCards() {
         //get the cards
-        const cardsArray = this.games.map(cards => cards.image_url)
-        
+        this.cardsArray = this.games.map(cards => cards * 2)
+        console.log(this.cardsArray)
         //sort them randomly
-        cardsArray.sort(() => 0.5 - Math.random())
+        this.cardsArray.sort(() => 0.5 - Math.random())
         
-        //generate the board
-        
-        for (let i = 0; i < cardsArray.length; i++) {
-            let card = document.createElement('img')
-            card.setAttribute('src', 'images/backofcard.png')
-            card.setAttribute('data-id', i)
-            //card.addEventListener('click', flipcard)
-            this.cardsContainer.appendChild(card)
+        ////generate the board
+        // cardsArray.forEach(card => 
+        //     card = document.createElement('img')
+        //     card.setAttribute('src', 'images/backofcard.png')
+        //     card.setAttribute('data-id')
+        //     this.cardsContainer.appendChild(card)
+            // )
+        for (let i = 0; i < this.cardsArray.length; i++) {
+            this.card = document.createElement('img')
+            this.card.setAttribute('src', 'src/images/backofcard.png')
+            this.card.setAttribute('id', i)
+            this.cardsContainer.appendChild(this.card)
+            this.card.addEventListener('click', this.flipCard())
         }
-
-
-
-        //add them to the cardsContainer grid
-        // this.cardsContainer.innerHTML += cardsArray
-
-        // const gameGrid = document.getElementById('grid')
-        // const resultDisplay = document.getElementById('result')
-      
-        // gameGrid.innerHTML += cardsArray
     }
 
-    // generateGameBoard() {
-    //     for (let i = 0; i < cardsArray.length; i++) {
-    //                 let card = document.createElement('img')
-    //                 card.setAttribute('src', 'images/backofcard.png')
-    //                 card.setAttribute('data-id', i)
-    //                 card.addEventListener('click', flipcard)
-    //                 grid.appendChild(card)
-    //             }
-    // }
-   //renderCards() {
-        // const cardsArray = this.games.map(game => game.cards)
-        // cardsArray.sort(() => 0.5 - Math.random())
+    ///flip the selected card
+    flipCard() {
+        let cardId = document.getElementById('id')
+        this.cardsChosen.push(this.cardsArray[cardId])
+        this.cardsChosenId.push(cardId)
+        this.card.setAttribute('src', this.cardsArray[cardId])
+        if (this.cardsChosen.length === 2) {
+            this.checkForMatch()
+        }
+    }
 
-        // const gameGrid = document.getElementById('grid')
-        // const resultDisplay = document.getElementById('result')
-        // let cardsChosen = []
-        // let cardsChosenId = []
-        // let cardsWon = []
-        // gameGrid.innerHTML += cardsArray
-   //}
+    //checks for match
+    checkForMatch() {
+        let cards = document.querySelectorAll('img')
+        const optionOneId = this.cardsChosenId[0]
+        const optionTwoId = this.cardsChosenId[1]
+        if (this.cardsChosen[0] === this.cardsChosen[1]) {
+            alert('It\'s a match!')
+            this.cardsWon.push(this.cardsChosen)
+        } else {
+            cards[optionOneId].setAttribute('src', 'images/backofcard.png')
+            cards[optionTwoId].setAttribute('src', 'images/backofcard.png')
+            alert('Sorry, try again')
+        }
+        if (this.cardsWon.length === this.cardsArray.length/2) {
+            alert('Congratulations, Winner!!')
+        }
+    }
+
+
+
 
 }
 
