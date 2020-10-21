@@ -1,11 +1,9 @@
 class Game {
-    constructor(game, gameAttributes) {
+    constructor(game) {
         this.id = game.id
-        this.title = gameAttributes.title
-        this.cards = gameAttributes.cards
+        this.title = game.attributes.title
+        this.cards = game.attributes.cards
     }
 
-    renderCards() {
-        
-    }
+   
 }
