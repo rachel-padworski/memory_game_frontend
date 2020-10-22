@@ -19,9 +19,7 @@ class Games {
             .getGames() //fetches the API
             .then(games => {
                 games.data[0].attributes.cards.forEach(card => this.games.push(card))
-                
             })
-        
             .then(() => {
                 this.renderCards()
             })    
@@ -48,41 +46,46 @@ class Games {
             
             let card = document.createElement('img')
             card.setAttribute('src', "/src/images/BackOfCard.png")
-            card.setAttribute('id', 'back-of-card')//('id', i)
+            card.setAttribute('id', i)//('id', i)
             this.cardsContainer.appendChild(card)
-            console.log(this.cardsContainer)
-            //card.addEventListener('click', this.flipCard())
+            card.addEventListener("click", this.flipCard()) 
         }
     }
+    
+////how do i test the eventlistener? i don't think it's listening
 
     ///flip the selected card
-    // flipCard() {
-    //     let cardId = document.getElementById('id')
-    //     this.cardsChosen.push(this.games[cardId])
-    //     this.cardsChosenId.push(cardId)
-    //     this.card.setAttribute('src', this.games[cardId])
-    //     if (this.cardsChosen.length === 2) {
-    //         this.checkForMatch()
-    //     }
-    // }
-
-    // //checks for match
-    // checkForMatch() {
-    //     let cards = document.querySelectorAll('img')
-    //     const optionOneId = this.cardsChosenId[0]
-    //     const optionTwoId = this.cardsChosenId[1]
-    //     if (this.cardsChosen[0] === this.cardsChosen[1]) {
-    //         //alert('It\'s a match!')
-    //         this.cardsWon.push(this.cardsChosen)
-    //     } else {
-    //         cards[optionOneId].setAttribute('src', '../images/backofcard.png')
-    //         cards[optionTwoId].setAttribute('src', '../images/backofcard.png')
-    //         //alert('Sorry, try again')
-    //     }
-    //     if (this.cardsWon.length === this.games.length/2) {
-    //         //alert('Congratulations, Winner!!')
-    //     }
-    // }
+    flipCard() {
+       
+        let cardId = document.getElementById('id')
+        
+        this.cardsChosen.push(this.games[cardId])
+        this.cardsChosenId.push(cardId)
+        
+        //cardId.setAttribute('src', this.games[cardId])
+        if (this.cardsChosen.length === 2) {
+            this.checkForMatch()
+        }
+        
+    }
+    
+    //checks for match
+    checkForMatch() {
+        let cards = document.querySelectorAll('img')
+        const optionOneId = this.cardsChosenId[0]
+        const optionTwoId = this.cardsChosenId[1]
+        if (this.cardsChosen[0] === this.cardsChosen[1]) {
+            alert('It\'s a match!')
+            this.cardsWon.push(this.cardsChosen)
+        } else {
+            cards[optionOneId].setAttribute('src', '../images/backofcard.png')
+            cards[optionTwoId].setAttribute('src', '../images/backofcard.png')
+            alert('Sorry, try again')
+        }
+        if (this.cardsWon.length === this.games.length/2) {
+            alert('Congratulations, Winner!!')
+        }
+    }
 
 
 
