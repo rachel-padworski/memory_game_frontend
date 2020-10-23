@@ -36,6 +36,10 @@ class Games {
         //this.cardsArray = this.games.map(cards => cards)
         // console.log(this.cardsArray)
         //sort them randomly
+        this.games.forEach(card => {
+            return card * 2
+        })
+        console.log(this.games)
         this.games.sort(() => 0.5 - Math.random())
         
         ////generate the board
@@ -46,9 +50,17 @@ class Games {
             
             let card = document.createElement('img')
             card.setAttribute('src', "/src/images/BackOfCard.png")
-            card.setAttribute('id', i)//('id', i)
+            card.setAttribute('id', i)
             this.cardsContainer.appendChild(card)
-            card.addEventListener("click", this.flipCard()) 
+            card.addEventListener("click", this.flipCard())
+            // card.addEventListener("click", clickedCard => {
+            //     e => {
+            //         this.flipCard().apply(this,[clickedCard])
+                    
+            //     }
+            //}) 
+            //console.log(this.cardsContainer)
+            // ^ seems like I need to pass this and the card local variable into the class function
         }
     }
     
@@ -56,8 +68,8 @@ class Games {
 
     ///flip the selected card
     flipCard() {
-       
-        let cardId = document.getElementById('id')
+       //image_url is the only thing that matches right now because they all have different ids.
+        let cardId = document.querySelector('image_url')
         
         this.cardsChosen.push(this.games[cardId])
         this.cardsChosenId.push(cardId)
@@ -75,15 +87,15 @@ class Games {
         const optionOneId = this.cardsChosenId[0]
         const optionTwoId = this.cardsChosenId[1]
         if (this.cardsChosen[0] === this.cardsChosen[1]) {
-            alert('It\'s a match!')
+            //alert('It\'s a match!')
             this.cardsWon.push(this.cardsChosen)
         } else {
             cards[optionOneId].setAttribute('src', '../images/backofcard.png')
             cards[optionTwoId].setAttribute('src', '../images/backofcard.png')
-            alert('Sorry, try again')
+            // alert('Sorry, try again')
         }
         if (this.cardsWon.length === this.games.length/2) {
-            alert('Congratulations, Winner!!')
+            // alert('Congratulations, Winner!!')
         }
     }
 
