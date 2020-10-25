@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css"></link>
     <script defer src="src/adapters/GamesAdapter.js"></script>
+    <!-- <script defer src="src/adapters/PlayersAdapter.js"></script> -->
+    <script defer src="src/components/players.js"></script>
     <script defer src="src/components/games.js"></script>
     <script defer src="src/components/app.js"></script>
     <script defer src="src/components/cards.js"></script>
@@ -26,27 +28,26 @@
 
     <div>
         <div class="modal" id="modal-container">
-            <div class="modal-header">
-                <span class='close'>&times;</span>
-                <h1>Create a Username:</h1>
-            </div>
-            <div class="modal-body">
-                <p>
-                    <input id='input-username' type="username" name="username" placeholder="username" value="" class="input-text">
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button id="submit" type="submit" value="submit" class="submit">Submit</button>
-            </div>
+            <form id="form-container">
+                <div class="modal-header">
+                    <span class='close'>&times;</span>
+                    <h1>Create a Username:</h1>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <input id='input-username' type="username" name="username" placeholder="username" value="" class="input-text">
+                        <input id='login-password' type="password" class="input-text">
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="submit" type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 
-   <h3>Score:<span id="result"></span></h3>
+   <!-- <h3>Score:<span id="result"></span></h3> -->
 
-
-    
-
-   
 
     <div class="game-container">
         <div id="memory-game">Memory Game</div>
@@ -54,21 +55,7 @@
   
         </li>
     </div>
-
-    <!-- <div class="login-button">
-        <form id="create-username-form">
-            <h3>Create a Username:</h3>
-
-            <input id='input-username' type="username" name="username" placeholder="username" value="" class="input-text">
-            <br><br>
-            <input id='create-button' type="submit" name="submit" value="Submit" class="submit">
-        </form>
-    </div> -->
-
-
-
-
-    
+  
 
 </body>
 </html>
