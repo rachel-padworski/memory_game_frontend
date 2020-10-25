@@ -9,5 +9,3 @@ class GamesAdapter {
     }
 }
 
-// adapter = new GameAdapter()
-// const games = adapter.getGames
