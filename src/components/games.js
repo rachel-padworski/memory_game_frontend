@@ -1,10 +1,6 @@
 class Games {
     constructor() {
-<<<<<<< HEAD
         // this.games = []
-=======
-        this.games = []
->>>>>>> 8aaa36081976c88d8a0868effeb3237088070f06
         this.cardsList = []
         this.adapter = new GamesAdapter()
         // this.cards = new Cards()
@@ -20,10 +16,7 @@ class Games {
 
     bindEventListeners() {
         this.cardsContainer = document.getElementById('grid')
-<<<<<<< HEAD
         this.
-=======
->>>>>>> 8aaa36081976c88d8a0868effeb3237088070f06
     }
 
     fetchAndLoadGame() {
