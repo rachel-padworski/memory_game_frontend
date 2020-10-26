@@ -46,11 +46,12 @@ class Players {
         })
         .then(response => response.json())
         .then(json => {
+            //what is happening here
             alert(`Welcome back ${json.player.data.attributes.username}`)
-            this.closeModal()
         })
+        this.closeModal()
     }
-//can't get this to work.....
+
     closeModal() {
         let modal_container = document.getElementById('modal-container')
         let submit = document.querySelector('#submit')[0]
