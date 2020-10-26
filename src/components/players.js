@@ -1,101 +1,101 @@
-class Players {
-    constructor() {
-        // this.adapter = new PlayersAdapter(),
-        this.renderLogin()
-    }
+// class Players {
+//     constructor() {
+//         // this.adapter = new PlayersAdapter(),
+//         this.renderLogin()
+//     }
     
-    renderLogin() {
-        const loginForm = document.querySelector('#modal-container')
-        loginForm.addEventListener('submit', (e) => this.loginFormHandler(e))
-    //     console.log("opened")
-    //     //select the modal? then the username input?
-    //     // const modalContainer = document.querySelector('#modal-container')
-    //     // const loginForm = document.querySelector("#modal-container")
-    //     const loginForm = document.querySelector("form-container")
-    //     loginForm.addEventListener("submit", (e) => this.loginFormHandler(e))
-    }
+//     renderLogin() {
+//         const loginForm = document.querySelector('#modal-container')
+//         loginForm.addEventListener('submit', (e) => this.loginFormHandler(e))
+//     //     console.log("opened")
+//     //     //select the modal? then the username input?
+//     //     // const modalContainer = document.querySelector('#modal-container')
+//     //     // const loginForm = document.querySelector("#modal-container")
+//     //     const loginForm = document.querySelector("form-container")
+//     //     loginForm.addEventListener("submit", (e) => this.loginFormHandler(e))
+//     }
     
-    loginFormHandler(e) {
-        e.preventDefault()
-        const usernameInput = e.target.querySelector('#input-username').value 
-        const passwordInput = e.target.querySelector('#login-password').value
-        this.loginFetch(usernameInput, passwordInput)
-    }
+//     loginFormHandler(e) {
+//         e.preventDefault()
+//         const usernameInput = e.target.querySelector('#input-username').value 
+//         const passwordInput = e.target.querySelector('#login-password').value
+//         this.loginFetch(usernameInput, passwordInput)
+//     }
 
-    loginFetch(username, password) {
-        const bodyData = {player: { username, password }}
+//     loginFetch(username, password) {
+//         const bodyData = {player: { username, password }}
 
-        fetch("http://localhost:3000/api/v1/login", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(bodyData)
-        })
-        .then(response => response.json())
-        .then(json => {
-            localStorage.setItem('jwt_token', json.jwt)
-            this.profileFetch()
-        })
-    }
+//         fetch("http://localhost:3000/api/v1/login", {
+//             method: "POST",
+//             headers: {"Content-Type": "application/json"},
+//             body: JSON.stringify(bodyData)
+//         })
+//         .then(response => response.json())
+//         .then(json => {
+//             localStorage.setItem('jwt_token', json.jwt)
+//             this.profileFetch()
+//         })
+//     }
 
-    profileFetch() {
-        fetch('http://localhost:3000/api/v1/profile', {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
-            }
-        })
-        .then(response => response.json())
-        .then(json => {
-            alert(`Welcome back ${json.player.data.attributes.username}`)
-            this.closeModal()
-        })
-    }
-//can't get this to work.....
-    closeModal() {
-        let modal_container = document.getElementById('modal-container')
-        let submit = document.querySelector('#submit')[0]
+//     profileFetch() {
+//         fetch('http://localhost:3000/api/v1/profile', {
+//             method: 'GET',
+//             headers: {
+//                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+//             }
+//         })
+//         .then(response => response.json())
+//         .then(json => {
+//             alert(`Welcome back ${json.player.data.attributes.username}`)
+//             this.closeModal()
+//         })
+//     }
+// //can't get this to work.....
+//     closeModal() {
+//         let modal_container = document.getElementById('modal-container')
+//         let submit = document.querySelector('#submit')[0]
         
-        //close modal when submit is clicked
-        submit.addEventListener('submit', () => {
-            modal_container.style.display = "none";
-        })
-    }
+//         //close modal when submit is clicked
+//         submit.addEventListener('submit', () => {
+//             modal_container.style.display = "none";
+//         })
+//     }
 
 
-    //     // const data = {player: {username}}
-    //     fetch("http://localhost:3000/api/v1/players", {
-    //         method: "POST",
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify({
-    //             username: username
-    //         })
-    //     })
-    //     .then(response => response.json())
-    //     .then(player => {
-    //         // renderPlayerProfile(player) //figure this out
-    //         console.log(player) playerStats()
-    //     })
+//     //     // const data = {player: {username}}
+//     //     fetch("http://localhost:3000/api/v1/players", {
+//     //         method: "POST",
+//     //         headers: {"Content-Type": "application/json"},
+//     //         body: JSON.stringify({
+//     //             username: username
+//     //         })
+//     //     })
+//     //     .then(response => response.json())
+//     //     .then(player => {
+//     //         // renderPlayerProfile(player) //figure this out
+//     //         console.log(player) playerStats()
+//     //     })
     
 
-    // fetchAndLoadPlayer() {
-    //     this.adapter
-    //     .getPlayers() //fetches the API
-    //     .then(players => {
-    //         players.data.forEach(player => this.renderPlayer(player))
-    //     })  
-    // }
+//     // fetchAndLoadPlayer() {
+//     //     this.adapter
+//     //     .getPlayers() //fetches the API
+//     //     .then(players => {
+//     //         players.data.forEach(player => this.renderPlayer(player))
+//     //     })  
+//     // }
 
-    // renderLogin(e) {
-    //     e.preventDefault()
-    //     const usernameInput = e.target.querySelector("#input-username").value
-    //     document.addEventListener("submit", this.fetchAndLoadPlayer())
-    //     this.loginFetch(usernameInput)
-    // }
+//     // renderLogin(e) {
+//     //     e.preventDefault()
+//     //     const usernameInput = e.target.querySelector("#input-username").value
+//     //     document.addEventListener("submit", this.fetchAndLoadPlayer())
+//     //     this.loginFetch(usernameInput)
+//     // }
 
     
 
 
-}
+// }
 
 
 // Form for username

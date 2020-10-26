@@ -1,13 +1,13 @@
-//instantiates a new instance of the games class
-class App {
-    constructor() {
-        this.games = new Games()
-        this.players = new Players()
-        this.modal()
-    }
+// //instantiates a new instance of the games class
+// class App {
+//     constructor() {
+//         this.games = new Games()
+//         this.players = new Players()
+//         this.modal()
+//     }
     
     /////Modal//////
-    modal() {
+    function modal() {
         let open = document.getElementById('login')
         let modal_container = document.getElementById('modal-container')
         let close = document.getElementsByClassName('close')[0]
@@ -34,6 +34,6 @@ class App {
         // })
     }
     
-}
+// }
 
 
