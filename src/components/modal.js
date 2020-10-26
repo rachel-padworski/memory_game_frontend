@@ -16,7 +16,7 @@
         //open modal
         open.addEventListener('click', () => {
             modal_container.style.display = "block";
-            // this.players = new Players()
+            this.players = new LoginManager()
         })
         //close modal
         close.addEventListener('click', () => {

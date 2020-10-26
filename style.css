@@ -5,16 +5,19 @@
     display: flex;
     flex-wrap: wrap;
     flex-grow: inherit;
-    height: 300px;
-    width: 400px;
+    width: 700px;
+   
     padding: 2em;
 }
 
-/* .card {
-    padding: 1em;
+ .card {
+    padding: 2px;
+    height: 100px;
+    width: 100px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     background-color: white;
-} */
+    margin: 5px;
+} 
 
 /* .card:hover {
     border: orangered;
@@ -144,6 +147,15 @@
     padding: 1em;
     top: 10;
     left: 10;
+}
+
+#result {
+    position: fixed;
+    padding: 10px;
+    align-items: ;
+    top: 0;
+    left: 0;
+    border-style: solid;
 }
 
 
