@@ -11,6 +11,7 @@ const grid = document.querySelector('.grid')
 const resultDisplay = document.querySelector('#result')
 cardsArray.sort(() => 0.5 - Math.random())
 
+getGame()
 function getGame() {
     fetch(endPoint)
     .then(response => response.json())
@@ -25,10 +26,11 @@ function getGame() {
             //     console.log(card)
             //     // cardsArray.push(card)
         })    
+        createBoard()
     })
 }
-getGame()
-
+// console.log(cardsArray.length)
+// createBoard()
 function createBoard() {
     for (let i = 0; i < cardsArray.length; i++) {
         let card = document.createElement('img')
@@ -38,13 +40,13 @@ function createBoard() {
         grid.appendChild(card)
     }
 }
-createBoard()
 
 //flip the selected cards
 function flipCard() {
     let cardId = this.getAttribute('id')
     cardsChosen.push(cardsArray[cardId].title)
-    cardsChosen.push(cardId)
+    cardsChosenId.push(cardId)
+    console.log(cardsChosen)
     this.setAttribute('src', cardsArray[cardId].image_url)
     if (cardsChosen.length === 2) {
         setTimeout(checkForMatch, 500)
@@ -58,12 +60,12 @@ function checkForMatch() {
     const optionTwoId = cardsChosenId[1]
 
     if (cardsChosen[0] === cardsChosen[1]) {
-        alert('You found a match!')
+        // alert('You found a match!')
         cardsWon.push(cardsChosen)
     } else {
         cards[optionOneId].setAttribute('src', "../src/images/BackOfCard.png")
         cards[optionTwoId].setAttribute('src', "../src/images/BackOfCard.png")        
-        alert('Sorry, try again')
+        // alert('Sorry, try again')
     }
     cardsChosen = []
     cardsChosenId = []

@@ -1,11 +1,11 @@
-// //instantiates a new instance of the games class
+// // //instantiates a new instance of the games class
 // class App {
 //     constructor() {
-//         this.games = new Games()
-//         this.players = new Players()
+//         // this.games = new Games()
+//         // this.players = new Players()
 //         this.modal()
 //     }
-    
+    modal()
     /////Modal//////
     function modal() {
         let open = document.getElementById('login')
@@ -34,6 +34,6 @@
         // })
     }
     
-// }
+//  }
 
 
