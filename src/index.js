@@ -6,31 +6,27 @@ const endPoint = "http://localhost:3000/api/v1/games"
 
 const grid = document.querySelector('.grid')
 const resultDisplay = document.querySelector('#result')
+const score = document.querySelector('#result')
 //cardsArray.sort(() => 0.5 - Math.random())
 
 getGame()
 function getGame() {
     fetch(endPoint)
     .then(response => response.json())
-    .then(games => {
-        // console.log(games.data[0].attributes.cards)
-        games.data[0].attributes.cards.forEach(card => {
-            
-            // console.log(cards)
+    .then(game => {
+        game.data[0].attributes.cards.forEach(card => {
             let newCard = new Card(card)
             newCard.render()
-            // console.log(newCard)
-            // cardsArray.push(newCard)
-            //     console.log(card)
-            //     // cardsArray.push(card)
         })    
-        // createBoard()
     })
 }
 
-function printScore(num){
-    console.log(`Your score is ${num}`)
-}
+// function printScore(num){
+//     score.appendChild(`Your score is ${num}`)
+//     // if (cardsWon.length === cardsArray.length/2) {
+//     //     resultDisplay.textContent = ' Congratulations! You found all matches!'
+//     // }
+// }
 // console.log(cardsArray.length)
 // // createBoard()
 // function createBoard() {

@@ -62,7 +62,7 @@ class Card {
             card.removeEventListener()
         }
         Card.cardsWon.push(Card.cardsChosen)
-        printScore(Card.cardsWon.length)
+        // printScore(Card.cardsWon.length)
     }
 
     resetCards() {
