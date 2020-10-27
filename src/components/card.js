@@ -12,9 +12,6 @@ class Card {
         
     }
 
-    // function createBoard() {
-    //     for (let i = 0; i < cardsArray.length; i++) {
-        //     }
         
     render() {
         const grid = document.querySelector('.grid')
@@ -27,7 +24,6 @@ class Card {
         grid.appendChild(card)
         this.domObj = card
     }
-
 
 
     flipCard() {

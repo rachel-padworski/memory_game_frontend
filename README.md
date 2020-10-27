@@ -14,7 +14,7 @@ A game for all ages featuring characters from Wreck-It Ralph. “What’s going 
 To use this app, clone this frontend [repo](https://github.com/raepad/memory_game_frontend) and use it alongside the backend [repo](https://github.com/raepad/memory_game_backend).
 
 # Usage
-Start a live server (if using VS Code, then try Live Server Extension)
+Open index.html in the browser or start a live server from index.html (if using VS Code, then try Live Server Extension).
 
 # Contributing
 Bug reports and pull requests are welcome at [https://github.com/raepad/memory_game_frontend](https://github.com/raepad/memory_game_backend). Contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/).
