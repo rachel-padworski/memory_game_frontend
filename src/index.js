@@ -8,6 +8,14 @@ const grid = document.querySelector('.grid')
 const resultDisplay = document.querySelector('#result')
 const score = document.querySelector('#result')
 //cardsArray.sort(() => 0.5 - Math.random())
+const reset = document.querySelector('#reset')
+reset.addEventListener('click', () => {
+    Card.all = []
+    Card.cardsChosen = []
+    Card.cardsWon = []
+    grid.innerHTML = ''
+    getGame()
+})
 
 getGame()
 function getGame() {
@@ -18,8 +26,11 @@ function getGame() {
             let newCard = new Card(card)
             newCard.render()
         })    
+   
     })
 }
+
+
 
 // function printScore(num){
 //     score.appendChild(`Your score is ${num}`)

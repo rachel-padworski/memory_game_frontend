@@ -1,22 +1,48 @@
 class LoginManager {
     constructor() {
-        // this.adapter = new PlayersAdapter(),
         this.establishListeners()
     }
     
     establishListeners() {
-        const loginForm = document.querySelector('#form-container')
-        loginForm.addEventListener('submit', (e) => this.loginFormHandler(e))
+        const loginForm = document.querySelector('#submit')
+        loginForm.addEventListener('submit', this.loginFormHandler)
+        const createUsernameForm = document.querySelector('#create-username')
+        createUsernameForm.addEventListener('click', this.createUsernameFormHandler)
     }
     
-    loginFormHandler(e) {
+    loginFormHandler = (e) => {
         e.preventDefault()
-        const usernameInput = e.target.querySelector('#input-username').value 
-        const passwordInput = e.target.querySelector('#login-password').value
+        const usernameInput = document.querySelector('#input-username').value 
+        const passwordInput = document.querySelector('#login-password').value
+        e.target.innerHTML = ""
         this.loginFetch(usernameInput, passwordInput)
     }
+    
+    createUsernameFormHandler = (e) => {
+        e.preventDefault()
+        const usernameInput = document.querySelector('#input-username').value 
+        const passwordInput = document.querySelector('#login-password').value
+        e.target.innerHTML = ""
+        this.createUserFetch(usernameInput, passwordInput)
+    }
+
+    createUserFetch(username, password) {{
+        const bodyData = {player: { username, password, game_id: 1 }}
+
+        fetch("http://localhost:3000/api/v1/players", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(bodyData)
+        })
+        .then(response => response.json())
+        .then(json => {
+            const username = json.player.data.attributes.username
+            this.renderGreeting(username)
+        })
+    }}
 
     loginFetch(username, password) {
+        
         const bodyData = {player: { username, password }}
 
         fetch("http://localhost:3000/api/v1/login", {
@@ -27,120 +53,26 @@ class LoginManager {
         .then(response => response.json())
         .then(json => {
             // this.localStorage.setItem('jwt_token', json.jwt)
-            console.log(json)
-            this.profileFetch()
+            const username = json.player.data.attributes.username
+            this.renderGreeting(username)
         })
     }
 
-    profileFetch() {
-        // console.log(this.localStorage.getItem('jwt_token'))
-        // fetch('http://localhost:3000/api/v1/profile', {
-        //     method: 'GET',
-        //     headers: {
-        //         Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
-        //     }
-        // })
-        // .then(response => response.json())
-        // .then(json => {
-        //     console.log(json)
-        //     //what is happening here
-        //     // const playerGreeting = document.querySelector('#player-greeting')
-        //     // playerGreeting.textContent = `Welcome back ${json.player.data.attributes.username}`
-        //     // console.log(json.player.data.attributes.username)
-        //     alert(`Welcome back ${json.player.data.attributes.username}`)
-        //     // add a feature to count wins to show to player stats
-        //     this.closeModal()
-        // })
+
+    renderGreeting(username) {
+        const playerGreeting = document.querySelector('#player-greeting')
+        playerGreeting.innerText = `Welcome, ${username}!`
         this.closeModal()
     }
+
 
     closeModal() {
         let modal_container = document.getElementById('modal-container')
         let submit = document.querySelector('#submit')
-        //close modal when submit is clicked
-        submit.addEventListener('submit', () => {
-            modal_container.style.display = "none";
+        submit.addEventListener('click', () => {
+            modal_container.style.display = "none"
         })
+   
     }
 
-
-        // const data = {player: {username}}
-        // fetch("http://localhost:3000/api/v1/players", {
-        //     method: "POST",
-        //     headers: {"Content-Type": "application/json"},
-        //     body: JSON.stringify({
-        //         username: username
-        //     })
-        // })
-        // .then(response => response.json())
-        // .then(player => {
-        //     // renderPlayerProfile(player) //figure this out
-        //     console.log(player) playerStats()
-        // })
-    
-
-    // fetchAndLoadPlayer() {
-    //     this.adapter
-    //     .getPlayers() //fetches the API
-    //     .then(players => {
-    //         players.data.forEach(player => this.renderPlayer(player))
-    //     })  
-    // }
-
-    // renderLogin(e) {
-    //     e.preventDefault()
-    //     const usernameInput = e.target.querySelector("#input-username").value
-    //     document.addEventListener("submit", this.fetchAndLoadPlayer())
-    //     this.loginFetch(usernameInput)
-    // }
-
-    
-
-
 }
-
-
-// Form for username
-// const usernameForm = document.querySelector("#create-username-form")
-// usernameForm.addEventListener("submit", (e) => usernameFormHandler(e))
-
-// // GET request for player
-// function getPlayer() {
-//     fetch("http://localhost:3000/api/v1/games") --->should this be the ..player/player_id?
-//     .then(response => response.json())
-//     .then(players => {
-//         players.data.forEach(player => {
-//             console.log(player) //needs more
-//         });
-//     })
-// }
-
-// // POST request
-
-// // where I will be handling all my values for username inputs
-
-// function usernameFormHandler(e) {
-//     e.preventDefault()
-//     const usernameInput = e.target.querySelector("#input-username").value
-//     usernameFetch(usernameInput)
-// }
-
-// function usernameFetch(username) {
-//     // const data = {player: {username}}
-//     fetch("http://localhost:3000/api/v1/players", {
-//         method: "POST",
-//         headers: {"Content-Type": "application/json"},
-//         body: JSON.stringify({
-//             username: username
-//         })
-//     })
-//     .then(response => response.json())
-//     .then(player => {
-//         // renderPlayerProfile(player) //figure this out
-//         console.log(player)
-//     })
-//  }
-
-// function renderPlayerProfile() {
-//     console.log("player profile") //need to figure this out
-// }

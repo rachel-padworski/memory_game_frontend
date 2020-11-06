@@ -16,7 +16,7 @@ class Card {
     render() {
         const grid = document.querySelector('.grid')
         let card = document.createElement('img')
-        card.setAttribute('src', "../src/images/BackOfCard.png")
+        card.setAttribute('src', "https://i.ibb.co/DwtSsx7/Back-Of-Card.png")
         card.setAttribute('id', this.id)
         this.eventListener = this.flipCard.bind(this)
         card.addEventListener('click', this.eventListener)
@@ -63,10 +63,12 @@ class Card {
 
     resetCards() {
         for(let card of Card.cardsChosen) {
-            card.domObj.setAttribute('src', "../src/images/BackOfCard.png")
+            card.domObj.setAttribute('src', "https://i.ibb.co/DwtSsx7/Back-Of-Card.png")
             
         }
         Card.cardsChosen = []
     }
+
+    
    
 }
