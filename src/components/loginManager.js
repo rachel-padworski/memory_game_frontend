@@ -4,7 +4,7 @@ class LoginManager {
     }
     
     establishListeners() {
-        const loginForm = document.querySelector('#submit')
+        const loginForm = document.querySelector('#form-container')
         loginForm.addEventListener('submit', this.loginFormHandler)
         const createUsernameForm = document.querySelector('#create-username')
         createUsernameForm.addEventListener('click', this.createUsernameFormHandler)
@@ -14,7 +14,7 @@ class LoginManager {
         e.preventDefault()
         const usernameInput = document.querySelector('#input-username').value 
         const passwordInput = document.querySelector('#login-password').value
-        e.target.innerHTML = ""
+        document.querySelector('#form-container').reset()
         this.loginFetch(usernameInput, passwordInput)
     }
     
@@ -22,7 +22,7 @@ class LoginManager {
         e.preventDefault()
         const usernameInput = document.querySelector('#input-username').value 
         const passwordInput = document.querySelector('#login-password').value
-        e.target.innerHTML = ""
+        document.querySelector('#form-container').reset()
         this.createUserFetch(usernameInput, passwordInput)
     }
 
@@ -51,7 +51,7 @@ class LoginManager {
             body: JSON.stringify(bodyData)
         })
         .then(response => response.json())
-        .then(json => {
+        .then(json => { console.log(json)
             // this.localStorage.setItem('jwt_token', json.jwt)
             const username = json.player.data.attributes.username
             this.renderGreeting(username)
